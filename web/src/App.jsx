@@ -1,17 +1,19 @@
+import { Tweet } from "./components/Tweet";
+
 export const App = () => {
   return (
-    <div>
-      <div>
-        <img src="/src/assets/images/avatar.png" alt="avatar" />
-      </div>
-
-      <div>
-        <span>Elon Musk</span>
-        <span>@elonmusck</span>
-        <p>
-          Let's make Twitter maximum fun!
-        </p>
-      </div>
-    </div>
-  )
-}
+    <>
+      <Tweet
+        name="Elon Musk"
+        username="elonmusk"
+        tweet="Começando o fullstack challenger"
+      />
+      <Tweet
+        name="Renan Loureiro"
+        username="renanloureiro"
+        tweet="Já estava ansioso para o fullstack challenger"
+        avatar="https://github.com/renanloureiroo.png"
+      />
+    </>
+  );
+};
