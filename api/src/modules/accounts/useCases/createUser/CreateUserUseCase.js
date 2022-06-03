@@ -7,13 +7,19 @@ class CreateUserUseCase {
   }
 
   async execute({ name, username, email, password }) {
-    const passwordHash = await bcrypt.hash(password, 8);
+    const userAlreadyExists = await this.usersRepository.findByEmail(email);
+
+    if (userAlreadyExists) {
+      throw new Error("User already exists");
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 8);
 
     const user = await this.usersRepository.create({
       name,
       username,
       email,
-      password: passwordHash,
+      password: hashedPassword,
     });
 
     return user;
