@@ -1,4 +1,4 @@
-import { prisma } from "../../../../../database/prisma";
+import { prisma } from "../../../../../database/prisma/index.js";
 
 class TweetsRepository {
   async create({ text, userId }) {
@@ -6,6 +6,9 @@ class TweetsRepository {
       data: {
         text,
         userId,
+      },
+      include: {
+        user: true,
       },
     });
 
