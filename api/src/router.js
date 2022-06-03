@@ -1,7 +1,6 @@
 import Router from "@koa/router";
+import { usersRoutes } from "./routes/users.routes.js";
 
 export const router = new Router();
 
-router.get("/tweets", (ctx) => {
-  ctx.body = "Tweets";
-});
+router.use("/users", usersRoutes.routes());
