@@ -4,8 +4,11 @@
   "main": "src/server.js",
   "type": "module",
   "scripts": {
+    "migrate": "dotenv -e .env.test -- yarn prisma migrate dev --name mysql-init",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
     "dev": "node src/server.js",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
+    "test": "yarn docker:up && yarn migrate && NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -i --runInBand"
   },
   "author": {
     "name": "Renan Loureiro",

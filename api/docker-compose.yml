@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql
+    container_name: fs_database_tests
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=fullstackchallange
+      - MYSQL_DATABASE=database_test
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  db:
+    driver: local
