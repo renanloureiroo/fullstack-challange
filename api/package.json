@@ -4,7 +4,8 @@
   "main": "src/server.js",
   "type": "module",
   "scripts": {
-    "dev": "node src/server.js"
+    "dev": "node src/server.js",
+    "test": "jest"
   },
   "author": {
     "name": "Renan Loureiro",
@@ -20,6 +21,8 @@
     "koa-bodyparser": "^4.3.0"
   },
   "devDependencies": {
-    "prisma": "^3.14.0"
+    "jest": "^28.1.0",
+    "prisma": "^3.14.0",
+    "supertest": "^6.2.3"
   }
 }
