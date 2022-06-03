@@ -19,4 +19,4 @@ class InMemoryUsersRepository {
   }
 }
 
-InMemoryUsersRepository;
+export { InMemoryUsersRepository };
