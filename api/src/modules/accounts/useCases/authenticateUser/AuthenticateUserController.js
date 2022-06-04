@@ -7,7 +7,17 @@ class AuthenticateUserController {
   async handle(ctx) {
     const { email, password } = ctx.request.body;
 
-    authenticateUserUseCase.execute({ email, password });
+    try {
+      const access_token = await this.authenticateUserUseCase.execute({
+        email,
+        password,
+      });
+
+      ctx.body = { access_token };
+    } catch (err) {
+      ctx.status = 400;
+      ctx.body = { error: err.message };
+    }
   }
 }
 export { AuthenticateUserController };

@@ -10,7 +10,7 @@ class AuthenticateUserUseCase {
     const userExits = await this.usersRepository.findByEmail(email);
 
     if (!userExits) {
-      throw new Error("Invalid email or password");
+      throw new Error("Invalid credentials");
     }
 
     const isPasswordValid = await bcryptjs.compare(
@@ -19,7 +19,7 @@ class AuthenticateUserUseCase {
     );
 
     if (!isPasswordValid) {
-      throw new Error("Invalid email or password");
+      throw new Error("Invalid credentials");
     }
     const accessToken = jtw.sign({}, process.env.JWT_SECRET, {
       expiresIn: "1h",

@@ -36,7 +36,7 @@ describe("Authenticate user use case", () => {
         email: user.email,
         password: "incorrect_password",
       })
-    ).rejects.toThrow("Invalid email or password");
+    ).rejects.toThrow("Invalid credentials");
   });
 
   it("should not be able to authenticate a user with invalid password", async () => {
@@ -45,6 +45,6 @@ describe("Authenticate user use case", () => {
         email: "incorrectEmail@email.com",
         password: user.password,
       })
-    ).rejects.toThrow("Invalid email or password");
+    ).rejects.toThrow("Invalid credentials");
   });
 });
