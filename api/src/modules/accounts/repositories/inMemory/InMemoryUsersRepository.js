@@ -6,7 +6,7 @@ class InMemoryUsersRepository {
 
   async create({ name, username, email, password }) {
     const user = {
-      id: this.users.length + 1,
+      id: String(this.users.length + 1),
       name,
       username,
       email,

@@ -7,7 +7,7 @@
     "migrate": "dotenv -e .env.test -- yarn prisma migrate dev --name mysql-init",
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down",
-    "dev": "node src/server.js",
+    "dev": "node dotenv -e .env.development src/server.js",
     "test": "yarn docker:up && yarn migrate && NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -i --runInBand"
   },
   "author": {
@@ -20,6 +20,7 @@
     "@koa/router": "^10.1.1",
     "@prisma/client": "^3.14.0",
     "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.5.1",
     "koa": "^2.13.4",
     "koa-bodyparser": "^4.3.0"
   },
